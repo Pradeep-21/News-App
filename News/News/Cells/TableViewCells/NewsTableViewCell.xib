@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="333" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="333"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="333"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7aY-xL-TkB">
+                        <rect key="frame" x="21" y="0.0" width="380" height="250"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="WwI-5P-nHQ"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loI-pS-BR9" customClass="NSLikeButton" customModule="News" customModuleProvider="target">
+                        <rect key="frame" x="330" y="0.0" width="71" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="mVu-nT-8e9"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="tintColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system" title="Like">
+                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="haf-9e-DoS"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNj-t4-ypv">
+                        <rect key="frame" x="21" y="183.5" width="380" height="66.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flO-nG-dnM">
+                                <rect key="frame" x="5" y="5" width="370" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSs-er-fcR">
+                                <rect key="frame" x="5" y="40.5" width="370" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="flO-nG-dnM" firstAttribute="top" secondItem="TNj-t4-ypv" secondAttribute="top" constant="5" id="4ru-di-UVG"/>
+                            <constraint firstItem="pSs-er-fcR" firstAttribute="leading" secondItem="TNj-t4-ypv" secondAttribute="leading" constant="5" id="5OK-lp-YZq"/>
+                            <constraint firstAttribute="trailing" secondItem="pSs-er-fcR" secondAttribute="trailing" constant="5" id="5wm-BR-VgT"/>
+                            <constraint firstAttribute="bottom" secondItem="pSs-er-fcR" secondAttribute="bottom" constant="5" id="7Tn-0k-MzV"/>
+                            <constraint firstItem="flO-nG-dnM" firstAttribute="leading" secondItem="TNj-t4-ypv" secondAttribute="leading" constant="5" id="HWK-SJ-jp4"/>
+                            <constraint firstAttribute="trailing" secondItem="flO-nG-dnM" secondAttribute="trailing" constant="5" id="KRZ-Vc-kmF"/>
+                            <constraint firstItem="pSs-er-fcR" firstAttribute="top" secondItem="flO-nG-dnM" secondAttribute="bottom" constant="10" id="upc-pM-AZF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="loI-pS-BR9" firstAttribute="trailing" secondItem="7aY-xL-TkB" secondAttribute="trailing" id="6fD-Lh-95j"/>
+                    <constraint firstItem="loI-pS-BR9" firstAttribute="top" secondItem="7aY-xL-TkB" secondAttribute="top" id="Tci-2x-XGf"/>
+                    <constraint firstItem="7aY-xL-TkB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a2c-gm-ngV"/>
+                    <constraint firstItem="7aY-xL-TkB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="g0O-3g-Mc7"/>
+                    <constraint firstItem="7aY-xL-TkB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="m7I-2r-GKL"/>
+                    <constraint firstAttribute="bottom" secondItem="7aY-xL-TkB" secondAttribute="bottom" constant="10" id="oVW-3o-JRF"/>
+                    <constraint firstItem="TNj-t4-ypv" firstAttribute="trailing" secondItem="7aY-xL-TkB" secondAttribute="trailing" id="sYL-Se-chc"/>
+                    <constraint firstItem="TNj-t4-ypv" firstAttribute="leading" secondItem="7aY-xL-TkB" secondAttribute="leading" id="sx5-7m-Qmh"/>
+                    <constraint firstItem="TNj-t4-ypv" firstAttribute="bottom" secondItem="7aY-xL-TkB" secondAttribute="bottom" id="zai-Zt-7jS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="NewsImageView" destination="7aY-xL-TkB" id="24q-J6-g5b"/>
+                <outlet property="NewsTitle" destination="flO-nG-dnM" id="fMB-ku-YJp"/>
+                <outlet property="dateTitle" destination="pSs-er-fcR" id="o3t-tR-Z5q"/>
+                <outlet property="likeButton" destination="loI-pS-BR9" id="NoE-3M-9ez"/>
+            </connections>
+            <point key="canvasLocation" x="221.73913043478262" y="217.29910714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

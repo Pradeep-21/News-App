@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewsCollectionViewCell" reuseIdentifier="NewsCollectionViewCell" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="News" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="379" height="281"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="379" height="281"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="89G-Am-N2u">
+                        <rect key="frame" x="0.0" y="0.0" width="379" height="281"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8MT-tC-f91">
+                                <rect key="frame" x="10" y="10" width="359" height="261"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="og5-82-UCp" customClass="NSLikeButton" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="298" y="10" width="71" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GYa-0I-4WE"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="tintColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system" title="Like">
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="likeButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6m0-Zx-7V1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-IR-xqd">
+                                <rect key="frame" x="10" y="207" width="359" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH3-EL-RJK">
+                                        <rect key="frame" x="5" y="5" width="349" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqa-i5-oqH">
+                                        <rect key="frame" x="5" y="38" width="349" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oqa-i5-oqH" secondAttribute="trailing" constant="5" id="1cs-Zd-Ds4"/>
+                                    <constraint firstAttribute="trailing" secondItem="UH3-EL-RJK" secondAttribute="trailing" constant="5" id="Ft9-RK-rQf"/>
+                                    <constraint firstItem="oqa-i5-oqH" firstAttribute="top" secondItem="UH3-EL-RJK" secondAttribute="bottom" constant="10" id="RCP-SX-Acr"/>
+                                    <constraint firstItem="UH3-EL-RJK" firstAttribute="leading" secondItem="fM4-IR-xqd" secondAttribute="leading" constant="5" id="TqJ-6u-sjR"/>
+                                    <constraint firstItem="oqa-i5-oqH" firstAttribute="leading" secondItem="fM4-IR-xqd" secondAttribute="leading" constant="5" id="U8M-Kv-qR4"/>
+                                    <constraint firstAttribute="bottom" secondItem="oqa-i5-oqH" secondAttribute="bottom" constant="5" id="nQ3-K0-B8G"/>
+                                    <constraint firstItem="UH3-EL-RJK" firstAttribute="top" secondItem="fM4-IR-xqd" secondAttribute="top" constant="5" id="zLE-nv-lov"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8MT-tC-f91" firstAttribute="top" secondItem="89G-Am-N2u" secondAttribute="top" constant="10" id="IgG-8F-WKa"/>
+                            <constraint firstItem="og5-82-UCp" firstAttribute="top" secondItem="8MT-tC-f91" secondAttribute="top" id="O8E-Tv-Eg0"/>
+                            <constraint firstAttribute="bottom" secondItem="8MT-tC-f91" secondAttribute="bottom" constant="10" id="Tol-pP-59c"/>
+                            <constraint firstItem="fM4-IR-xqd" firstAttribute="leading" secondItem="8MT-tC-f91" secondAttribute="leading" id="jFc-nd-T9u"/>
+                            <constraint firstItem="og5-82-UCp" firstAttribute="trailing" secondItem="8MT-tC-f91" secondAttribute="trailing" id="lW4-p1-Zf5"/>
+                            <constraint firstItem="8MT-tC-f91" firstAttribute="leading" secondItem="89G-Am-N2u" secondAttribute="leading" constant="10" id="mrb-ae-zz6"/>
+                            <constraint firstItem="fM4-IR-xqd" firstAttribute="bottom" secondItem="8MT-tC-f91" secondAttribute="bottom" id="pzv-H9-mdW"/>
+                            <constraint firstAttribute="trailing" secondItem="8MT-tC-f91" secondAttribute="trailing" constant="10" id="qqy-DZ-fA6"/>
+                            <constraint firstItem="fM4-IR-xqd" firstAttribute="trailing" secondItem="8MT-tC-f91" secondAttribute="trailing" id="vo9-XX-PqY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="89G-Am-N2u" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0M9-h3-yIr"/>
+                <constraint firstItem="89G-Am-N2u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BdG-gI-kNn"/>
+                <constraint firstAttribute="trailing" secondItem="89G-Am-N2u" secondAttribute="trailing" id="T6N-ld-Vir"/>
+                <constraint firstAttribute="bottom" secondItem="89G-Am-N2u" secondAttribute="bottom" id="bQP-uN-gxj"/>
+            </constraints>
+            <size key="customSize" width="379" height="281"/>
+            <connections>
+                <outlet property="likeButton" destination="og5-82-UCp" id="3Lq-P4-M4a"/>
+                <outlet property="newsImageView" destination="8MT-tC-f91" id="6y8-Fg-Spb"/>
+                <outlet property="newsPublishedDateLabel" destination="oqa-i5-oqH" id="RTC-lg-YO1"/>
+                <outlet property="newsTitleLabel" destination="UH3-EL-RJK" id="Azl-CC-uQb"/>
+            </connections>
+            <point key="canvasLocation" x="258.69565217391306" y="80.691964285714278"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
