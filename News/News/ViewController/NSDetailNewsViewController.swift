@@ -1,18 +1,14 @@
 //
-//  DetailNewsViewController.swift
+//  NSDetailNewsViewController.swift
 //  News
 //
-//  Created by Anbusekar Murugesan on 09/04/2022.
+//  Created by Pradeep Selvaraj on 24/04/22.
 //
 
 import UIKit
 import Alamofire
 
-protocol DetailNewsViewControllerDelegate {
-    func likeButtonTapped(at: IndexPath)
-}
-
-protocol LikeButtonProtocol {
+protocol LikeButtonDelegate {
     func likeButtonTapped(at: IndexPath)
 }
 
@@ -26,21 +22,22 @@ class NSDetailNewsViewController: NSViewController {
     @IBOutlet weak var newsDescription: UILabel!
     @IBOutlet weak var likeButton: NSLikeButton!
     
-    // MARK: - Variable
+    // MARK: - Stored Properties
     
     var article: Article?
-    var delegate: DetailNewsViewControllerDelegate?
+    var delegate: LikeButtonDelegate?
     var selectedIndexPath: IndexPath?
     
     // MARK: - View Life Cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Detail View"
     }
     
-    // MARK: - Custom Mehtods
+    // MARK: - Custom Methods
     
-    @IBAction func likeButtonTapped(_ sender: Any) {
+    @IBAction func likeButtonDidPressed(_ sender: Any) {
         if article?.isLiked == true {
             article?.isLiked = false
             likeButton.unLiked()
@@ -55,11 +52,11 @@ class NSDetailNewsViewController: NSViewController {
     
     override func customiseUI() {
         super.customiseUI()
-        loadNewsImage()
+        fetchImage()
         newsTitle.text = article?.title
         newsDescription.text = article?.articleDescription
         if let pubAt = article?.publishedAt {
-            publishedAtLabel.text = NewsHelper.convertToUTC(dateToConvert: pubAt)
+            publishedAtLabel.text = "Published At: \(NSHelper.convertToUTC(dateToConvert: pubAt))"
         }
         if article?.isLiked == true {
             likeButton.liked()
@@ -69,12 +66,12 @@ class NSDetailNewsViewController: NSViewController {
     }
     
     
-    private func loadNewsImage() {
+    private func fetchImage() {
         if let remoteImageURL = URL(string: article?.urlToImage ?? "") {
-            AF.request(remoteImageURL).responseData { (response) in
+            AF.request(remoteImageURL).responseData { [weak self] (response) in
                 if response.error == nil {
                     if let data = response.data {
-                        self.newsImage.image = UIImage(data: data)
+                        self?.newsImage.image = UIImage(data: data)
                     }
                 }
             }

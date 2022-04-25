@@ -1,5 +1,5 @@
 //
-//  NewsCollectionViewCell.swift
+//  NewsTableViewCell.swift
 //  News
 //
 //  Created by Pradeep Selvaraj on 24/04/22.
@@ -8,42 +8,48 @@
 import UIKit
 import Alamofire
 
-class NewsCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsPublishedDateLabel: UILabel!
-    @IBOutlet weak var newsImageView: UIImageView!
+class NSNewsTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var dateTitle: UILabel!
+    @IBOutlet weak var newsTitle: UILabel!
     @IBOutlet weak var likeButton: NSLikeButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var newsImageView: UIImageView!
     
-    static let identifierForCell = "NSNewsCollectionViewCell"
+    static let identifierForCell = "NSNewsTableViewCell"
     
-    private var news: Article?
-    private var newsImage: UIImage?
-    var currentIndexPath: IndexPath?
     var delegate: LikeButtonDelegate?
-    
+    var newsImage: UIImage?
+    var viewModel: NSNewsViewModel?
+    var currentIndexPath: IndexPath?
+    let activityIndicator = UIActivityIndicatorView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        customise()
+    }
+    
+    private func customise() {
         newsImageView.layer.cornerRadius = 5
-        activityIndicator.hidesWhenStopped = true
+        activityIndicator.frame = newsImageView.frame
+        activityIndicator.backgroundColor = UIColor(named: "paleGray")
     }
     
     @IBAction func likeButtonDidPressed(_ sender: Any) {
-        if let data = currentIndexPath {
-            delegate?.likeButtonTapped(at: data)
+        if let indexPath = currentIndexPath {
+            delegate?.likeButtonTapped(at: indexPath)
         }
     }
     
     func updateCell(with news: Article?) {
         startLoading()
-        guard let remoteImageURL = URL(string: news?.urlToImage ?? "") else { return }
+        guard let remoteImageURL = URL(string: news?.urlToImage ?? "") else {
+            return
+        }
         AF.request(remoteImageURL).responseData { (response) in
-            self.stopLoading()
             if response.error == nil {
                 if let data = response.data {
                     DispatchQueue.main.async {
+                        self.stopLoading()
                         self.newsImage = UIImage(data: data)
                         self.internalUpdate(article: news)
                     }
@@ -53,22 +59,23 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
     
     private func startLoading() {
+        contentView.addSubview(activityIndicator)
         activityIndicator.startAnimating()
     }
     
     private func stopLoading() {
-        activityIndicator.stopAnimating()
+        activityIndicator.startAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     private func internalUpdate(article: Article?) {
         newsImageView.image = newsImage
-        newsTitleLabel.text = article?.title
-        newsPublishedDateLabel.text = NSHelper.convertToUTC(dateToConvert: article?.publishedAt ?? "")
+        newsTitle.text = article?.title
+        dateTitle.text = NSHelper.convertToUTC(dateToConvert: article?.publishedAt ?? "")
         if article?.isLiked == true {
             likeButton.liked()
         } else {
             likeButton.unLiked()
-            
         }
     }
     

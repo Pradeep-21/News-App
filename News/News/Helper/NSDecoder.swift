@@ -1,6 +1,6 @@
 //
 //  NSDecoder.swift
-//  NEWS
+//  News
 //
 //  Created by Pradeep Selvaraj on 24/04/22.
 //
@@ -24,7 +24,7 @@ protocol NSDecodeProtocol {
 
 class NSDecoder: NSDecodeProtocol {
     func decode<T>(_ type: T.Type, from data: Data) throws -> T where T: Decodable {
-        let dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter() /// `Note:` If we want to decode the date formate we also use this class instance.
         return try dateFormatter.decoder.decode(type, from: data)
     }
 }

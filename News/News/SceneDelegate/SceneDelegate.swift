@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  News
 //
-//  Created by Anbusekar Murugesan on 05/04/2022.
+//  Created by Pradeep Selvaraj on 24/04/22.
 //
 
 import UIKit

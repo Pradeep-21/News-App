@@ -1,6 +1,6 @@
 //
 //  NSAlamofire.swift
-//  NEWS
+//  News
 //
 //  Created by Pradeep Selvaraj on 24/04/22.
 //

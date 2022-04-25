@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewsCollectionViewCell" reuseIdentifier="NewsCollectionViewCell" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="News" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewsCollectionViewCell" reuseIdentifier="NSNewsCollectionViewCell" id="gTV-IL-0wX" customClass="NewsCollectionViewCell" customModule="News" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="379" height="281"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -33,19 +34,19 @@
                                     <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="likeButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6m0-Zx-7V1"/>
+                                    <action selector="likeButtonDidPressed:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Gb2-nR-ydS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM4-IR-xqd">
                                 <rect key="frame" x="10" y="207" width="359" height="64"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH3-EL-RJK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH3-EL-RJK">
                                         <rect key="frame" x="5" y="5" width="349" height="23"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqa-i5-oqH">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqa-i5-oqH">
                                         <rect key="frame" x="5" y="38" width="349" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,10 +64,14 @@
                                     <constraint firstItem="UH3-EL-RJK" firstAttribute="top" secondItem="fM4-IR-xqd" secondAttribute="top" constant="5" id="zLE-nv-lov"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xCy-cA-K1K">
+                                <rect key="frame" x="179.5" y="130.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8MT-tC-f91" firstAttribute="top" secondItem="89G-Am-N2u" secondAttribute="top" constant="10" id="IgG-8F-WKa"/>
+                            <constraint firstItem="xCy-cA-K1K" firstAttribute="centerY" secondItem="89G-Am-N2u" secondAttribute="centerY" id="NMz-J5-a6i"/>
                             <constraint firstItem="og5-82-UCp" firstAttribute="top" secondItem="8MT-tC-f91" secondAttribute="top" id="O8E-Tv-Eg0"/>
                             <constraint firstAttribute="bottom" secondItem="8MT-tC-f91" secondAttribute="bottom" constant="10" id="Tol-pP-59c"/>
                             <constraint firstItem="fM4-IR-xqd" firstAttribute="leading" secondItem="8MT-tC-f91" secondAttribute="leading" id="jFc-nd-T9u"/>
@@ -75,6 +80,7 @@
                             <constraint firstItem="fM4-IR-xqd" firstAttribute="bottom" secondItem="8MT-tC-f91" secondAttribute="bottom" id="pzv-H9-mdW"/>
                             <constraint firstAttribute="trailing" secondItem="8MT-tC-f91" secondAttribute="trailing" constant="10" id="qqy-DZ-fA6"/>
                             <constraint firstItem="fM4-IR-xqd" firstAttribute="trailing" secondItem="8MT-tC-f91" secondAttribute="trailing" id="vo9-XX-PqY"/>
+                            <constraint firstItem="xCy-cA-K1K" firstAttribute="centerX" secondItem="89G-Am-N2u" secondAttribute="centerX" id="yDK-kv-rye"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -88,6 +94,7 @@
             </constraints>
             <size key="customSize" width="379" height="281"/>
             <connections>
+                <outlet property="activityIndicator" destination="xCy-cA-K1K" id="u1o-GM-WLp"/>
                 <outlet property="likeButton" destination="og5-82-UCp" id="3Lq-P4-M4a"/>
                 <outlet property="newsImageView" destination="8MT-tC-f91" id="6y8-Fg-Spb"/>
                 <outlet property="newsPublishedDateLabel" destination="oqa-i5-oqH" id="RTC-lg-YO1"/>

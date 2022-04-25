@@ -1,8 +1,8 @@
 //
-//  newsListModel.swift
+//  NSNewsModel.swift
 //  News
 //
-//  Created by Anbusekar Murugesan on 05/04/2022.
+//  Created by Pradeep Selvaraj on 24/04/22.
 //
 
 import Foundation
@@ -26,14 +26,13 @@ struct Article: Codable {
     let urlToImage: String?
     let publishedAt: String?
     let content: String?
-    var Newsimage: Data?
+    
     var isLiked: Bool? = false
     
     enum CodingKeys: String, CodingKey {
         case source, author, title
         case articleDescription = "description"
         case url, urlToImage, publishedAt, content
-        case Newsimage
         case isLiked
     }
 }

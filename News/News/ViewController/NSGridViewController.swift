@@ -1,8 +1,8 @@
 //
-//  NewsGridViewController.swift
+//  NSGridViewController.swift
 //  News
 //
-//  Created by Anbusekar Murugesan on 05/04/2022.
+//  Created by Pradeep Selvaraj on 24/04/22.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ class NSGridViewController: NSViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: - Variables
+    // MARK: - Stored Properties
     
     var model: NSNewsViewModel?
     
@@ -40,16 +40,18 @@ class NSGridViewController: NSViewController {
     }
     
     private func updateDataToListView() {
-        let newsListVc = self.tabBarController?.viewControllers?[0] as? NSNewsListViewController
+        let navigationController = self.tabBarController?.viewControllers?[0] as? UINavigationController
+        let listVC = navigationController?.viewControllers.first as? NSNewsListViewController
         if let data = model {
-            newsListVc?.viewModel = data
+            listVC?.viewModel = data
         }
     }
 
 }
 
+// MARK: - UICollectionViewDataSource Methods
 
-extension NSGridViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension NSGridViewController :  UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         model?.dataSource?.articles.count ?? 0
@@ -59,30 +61,38 @@ extension NSGridViewController : UICollectionViewDelegate, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsCollectionViewCell.identifierForCell, for: indexPath) as? NewsCollectionViewCell else {
             return UICollectionViewCell()
         }
+        cell.newsImageView.image = nil
         cell.updateCell(with: model?.dataSource?.articles[indexPath.row] )
         cell.delegate = self
         cell.currentIndexPath = indexPath
         return cell
     }
+
+}
+
+//MARK: - UICollectionView Delegate Methods
+
+extension NSGridViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.collectionView.frame.width / 2 , height: self.collectionView.frame.width / 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc  = storyBoard.instantiateViewController(withIdentifier: String(describing: NSDetailNewsViewController.self)) as? NSDetailNewsViewController {
-            vc.modalPresentationStyle = .popover
-            vc.article = model?.dataSource?.articles[indexPath.row]
-            vc.delegate = self
-            vc.selectedIndexPath = indexPath
-            self.navigationController?.present(vc, animated: true, completion: nil)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: String(describing: NSDetailNewsViewController.self)) as? NSDetailNewsViewController else {
+            return
         }
+        detailVC.modalPresentationStyle = .popover
+        detailVC.article = model?.dataSource?.articles[indexPath.row]
+        detailVC.delegate = self
+        detailVC.selectedIndexPath = indexPath
+        navigationController?.present(detailVC, animated: true)
     }
     
 }
 
-extension NSGridViewController: NewsCollectionViewCellDelegate, DetailNewsViewControllerDelegate {
+extension NSGridViewController: LikeButtonDelegate {
     
     func likeButtonTapped(at: IndexPath) {
         if let isLiked = model?.dataSource?.articles[at.row].isLiked {

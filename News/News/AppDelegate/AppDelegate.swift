@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  News
 //
-//  Created by Anbusekar Murugesan on 05/04/2022.
+//  Created by Pradeep Selvaraj on 24/04/22.
 //
 
 import UIKit
@@ -10,10 +10,9 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customAppearence()
         return true
     }
 
@@ -31,6 +30,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    private func customAppearence() {
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+        if #available(iOS 15.0, *) {
+            let tabAppearance = UITabBarAppearance()
+            tabAppearance.configureWithOpaqueBackground()
+        
+            UITabBar.appearance().standardAppearance = tabAppearance
+            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        } else {
+            // DO nothing
+        }
+    }
 
 }
 

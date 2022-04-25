@@ -1,6 +1,6 @@
 //
 //  NSNEWSListViewModel.swift
-//  NEWS
+//  News
 //
 //  Created by Pradeep Selvaraj on 24/04/22.
 //
@@ -12,11 +12,15 @@ protocol NSReloadProtocol {
     var isReloadView: Observable<Bool> { get }
 }
 
-protocol NSNewsListViewModelProtocol: NSReloadProtocol {}
+protocol NSNewsListViewModelProtocol: NSReloadProtocol {
+    var errorMessage: Observable<String> { get }
+}
 
 class NSNewsViewModel: NSNewsListViewModelProtocol {
     
     var isReloadView: Observable<Bool> = Observable(false)
+    var errorMessage: Observable<String> = Observable("")
+    
     private let model: NSNewsModelProtocol
     var dataSource: NewsList?
     
@@ -37,7 +41,5 @@ class NSNewsViewModel: NSNewsListViewModelProtocol {
             // Handling the failure case
         }
     }
-    
-    
     
 }

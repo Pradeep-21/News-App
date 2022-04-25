@@ -1,6 +1,6 @@
 //
 //  NSDateFormatter.swift
-//  NEWS
+//  News
 //
 //  Created by Pradeep Selvaraj on 24/04/22.
 //
@@ -11,6 +11,7 @@ class NSDateFormatter: DateFormatter {
     static let utc = "UTC"
     private var formatter = DateFormatter()
     
+    /// Add the Date Formatter type which type we want.
     var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .custom { decoder in
@@ -41,7 +42,7 @@ class NSDateFormatter: DateFormatter {
     // MARK: - Custom methods
 
     private func customise() {
-        // We will have UTC timezeone as default timezone in dateformatter. So, We have this timezone initially.
+        // We will have UTC timeZone as default timezone in dateFormatter. So, We have this timezone initially.
         timeZone = TimeZone(abbreviation: NSDateFormatter.utc)
     }
 }

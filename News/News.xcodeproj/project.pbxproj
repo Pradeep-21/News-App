@@ -13,9 +13,9 @@
 		813C92AF2815BE600017984C /* NewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92AE2815BE600017984C /* NewsTests.swift */; };
 		813C92B92815BE600017984C /* NewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92B82815BE600017984C /* NewsUITests.swift */; };
 		813C92BB2815BE600017984C /* NewsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92BA2815BE600017984C /* NewsUITestsLaunchTests.swift */; };
-		813C92CB2815BE8B0017984C /* NewsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92CA2815BE8B0017984C /* NewsHelper.swift */; };
-		813C92D92815BEAD0017984C /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813C92D42815BEAD0017984C /* NewsTableViewCell.xib */; };
-		813C92DA2815BEAD0017984C /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92D52815BEAD0017984C /* NewsTableViewCell.swift */; };
+		813C92CB2815BE8B0017984C /* NSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92CA2815BE8B0017984C /* NSHelper.swift */; };
+		813C92D92815BEAD0017984C /* NSNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813C92D42815BEAD0017984C /* NSNewsTableViewCell.xib */; };
+		813C92DA2815BEAD0017984C /* NSNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92D52815BEAD0017984C /* NSNewsTableViewCell.swift */; };
 		813C92DB2815BEAD0017984C /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92D72815BEAD0017984C /* NewsCollectionViewCell.swift */; };
 		813C92DC2815BEAD0017984C /* NewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813C92D82815BEAD0017984C /* NewsCollectionViewCell.xib */; };
 		813C92E02815BEB60017984C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C92DE2815BEB60017984C /* AppDelegate.swift */; };
@@ -37,6 +37,7 @@
 		817273B82815CEBB001773CB /* NSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817273B52815CEBB001773CB /* NSButton.swift */; };
 		817273B92815CEBB001773CB /* NSImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817273B62815CEBB001773CB /* NSImageView.swift */; };
 		817273BA2815CEBB001773CB /* NSLikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817273B72815CEBB001773CB /* NSLikeButton.swift */; };
+		81982C79281635B900268E75 /* NSExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81982C78281635B900268E75 /* NSExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +67,9 @@
 		813C92B42815BE600017984C /* NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		813C92B82815BE600017984C /* NewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITests.swift; sourceTree = "<group>"; };
 		813C92BA2815BE600017984C /* NewsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		813C92CA2815BE8B0017984C /* NewsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHelper.swift; sourceTree = "<group>"; };
-		813C92D42815BEAD0017984C /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
-		813C92D52815BEAD0017984C /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		813C92CA2815BE8B0017984C /* NSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSHelper.swift; sourceTree = "<group>"; };
+		813C92D42815BEAD0017984C /* NSNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NSNewsTableViewCell.xib; sourceTree = "<group>"; };
+		813C92D52815BEAD0017984C /* NSNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNewsTableViewCell.swift; sourceTree = "<group>"; };
 		813C92D72815BEAD0017984C /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		813C92D82815BEAD0017984C /* NewsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCollectionViewCell.xib; sourceTree = "<group>"; };
 		813C92DE2815BEB60017984C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		817273B52815CEBB001773CB /* NSButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSButton.swift; sourceTree = "<group>"; };
 		817273B62815CEBB001773CB /* NSImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageView.swift; sourceTree = "<group>"; };
 		817273B72815CEBB001773CB /* NSLikeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLikeButton.swift; sourceTree = "<group>"; };
+		81982C78281635B900268E75 /* NSExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +185,8 @@
 				817273A22815C53B001773CB /* NSDecoder.swift */,
 				817273A52815C53B001773CB /* NSEnum.swift */,
 				817273A72815C53B001773CB /* NSObservable.swift */,
-				813C92CA2815BE8B0017984C /* NewsHelper.swift */,
+				813C92CA2815BE8B0017984C /* NSHelper.swift */,
+				81982C78281635B900268E75 /* NSExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -209,8 +212,8 @@
 		813C92D32815BEAD0017984C /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				813C92D42815BEAD0017984C /* NewsTableViewCell.xib */,
-				813C92D52815BEAD0017984C /* NewsTableViewCell.swift */,
+				813C92D52815BEAD0017984C /* NSNewsTableViewCell.swift */,
+				813C92D42815BEAD0017984C /* NSNewsTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -414,7 +417,7 @@
 			files = (
 				813C92A42815BE600017984C /* LaunchScreen.storyboard in Resources */,
 				813C92A12815BE600017984C /* Assets.xcassets in Resources */,
-				813C92D92815BEAD0017984C /* NewsTableViewCell.xib in Resources */,
+				813C92D92815BEAD0017984C /* NSNewsTableViewCell.xib in Resources */,
 				813C92E32815BEC80017984C /* Main.storyboard in Resources */,
 				813C92DC2815BEAD0017984C /* NewsCollectionViewCell.xib in Resources */,
 			);
@@ -441,9 +444,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				813C92CB2815BE8B0017984C /* NewsHelper.swift in Sources */,
+				813C92CB2815BE8B0017984C /* NSHelper.swift in Sources */,
 				817273B92815CEBB001773CB /* NSImageView.swift in Sources */,
-				813C92DA2815BEAD0017984C /* NewsTableViewCell.swift in Sources */,
+				813C92DA2815BEAD0017984C /* NSNewsTableViewCell.swift in Sources */,
 				817273AA2815C53B001773CB /* NSDateFormatter.swift in Sources */,
 				817273B12815C5CE001773CB /* NSAlamofire.swift in Sources */,
 				817273BA2815CEBB001773CB /* NSLikeButton.swift in Sources */,
@@ -453,6 +456,7 @@
 				817273A82815C53B001773CB /* NSDecoder.swift in Sources */,
 				813C92DB2815BEAD0017984C /* NewsCollectionViewCell.swift in Sources */,
 				813C92E12815BEB60017984C /* SceneDelegate.swift in Sources */,
+				81982C79281635B900268E75 /* NSExtension.swift in Sources */,
 				813C92F12815BEEF0017984C /* NSDetailNewsViewController.swift in Sources */,
 				817273B32815C601001773CB /* NSNewsViewModel.swift in Sources */,
 				813C92F02815BEEF0017984C /* NSGridViewController.swift in Sources */,
@@ -649,7 +653,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -677,7 +681,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
